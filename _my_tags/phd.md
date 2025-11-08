@@ -1,0 +1,4 @@
+---
+slug: phd
+name: PhD
+---

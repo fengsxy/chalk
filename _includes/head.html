@@ -1,0 +1,71 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{{ site.name }} | {{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:description" content="{{ page.description }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:image" content="{{ site.url }}{% if page.og_image %}{{ page.og_image | asset_path }}{% else %}{% asset_path og-image.jpg %}{% endif %}">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="{{ page.url | absolute_url }}">
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:description" content="{{ page.description }}">
+  <meta name="twitter:image" content="{{ site.url }}{% if page.og_image %}{{ page.og_image | asset_path }}{% else %}{% asset_path og-image.jpg %}{% endif %}">
+
+  <link rel="apple-touch-icon" href="{% asset_path apple-touch-icon.png %}">
+  <link href="{{ 'feed.xml' | absolute_url }}" type="application/rss+xml" rel="alternate" title="{{ site.name }} Last 10 blog posts" />
+
+  {% if site.local_fonts %}
+    {% stylesheet fonts %}
+  {% endif %}
+
+  {% if site.blog_theme == "light" %}
+    {% stylesheet light %}
+  {% else %}
+    {% stylesheet dark %}
+  {% endif %}
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-150720233-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-150720233-1');
+</script>
+
+
+  		<!-- Start of Woopra Code -->
+      <script>
+        (function(){
+                var t,i,e,n=window,o=document,a=arguments,s="script",r=["config","track","identify","visit","push","call","trackForm","trackClick"],c=function(){var t,i=this;for(i._e=[],t=0;r.length>t;t++)(function(t){i[t]=function(){return i._e.push([t].concat(Array.prototype.slice.call(arguments,0))),i}})(r[t])};for(n._w=n._w||{},t=0;a.length>t;t++)n._w[a[t]]=n[a[t]]=n[a[t]]||new c;i=o.createElement(s),i.async=1,i.src="//static.woopra.com/js/w.js",e=o.getElementsByTagName(s)[0],e.parentNode.insertBefore(i,e)
+        })("woopra");
+    
+        woopra.config({
+            domain: 'shift-3.com'
+        });
+        woopra.track();
+        </script>
+        <!-- End of Woopra Code -->
+
+    <div id="google_translate_element"></div>
+    <script>
+			function googleTranslateElementInit() {
+			new google.translate.TranslateElement({pageLanguage: 'cn', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+			}
+    </script>
+    <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <style>
+    #google_translate_element img {
+      display: inline-block;
+    }
+    </style>
+</head>
