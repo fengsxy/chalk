@@ -19,3 +19,46 @@
 
 {% javascript vendor %}
 {% javascript application %}
+<script>
+(function () {
+  function applyLanguage(lang, sections) {
+    var visible = 0;
+    for (var i = 0; i < sections.length; i++) {
+      var node = sections[i];
+      var match = node.getAttribute('data-lang') || '';
+      var isTarget = match === lang;
+      node.style.display = isTarget ? '' : 'none';
+      if (isTarget) {
+        visible++;
+      }
+    }
+    if (visible === 0) {
+      for (var j = 0; j < sections.length; j++) {
+        sections[j].style.display = '';
+      }
+      return false;
+    }
+    document.documentElement.setAttribute('lang', lang);
+    return true;
+  }
+
+  function run() {
+    var sections = document.querySelectorAll('[data-lang]');
+    if (!sections.length) {
+      return;
+    }
+    var pref = (navigator.language || navigator.userLanguage || '').toLowerCase();
+    var targetLang = pref.indexOf('zh') === 0 ? 'zh' : 'en';
+    if (!applyLanguage(targetLang, sections)) {
+      var fallback = sections[0].getAttribute('data-lang') || 'en';
+      applyLanguage(fallback, sections);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+})();
+</script>
