@@ -9,7 +9,7 @@ blog_theme: light # Or use dark
 # Optional settings
 
 about_enabled: false # Change to true if you wish to show an icon in the navigation that redirects to the about page
-discus_identifier: http-blog-haojianj-in # Add your Disqus identifier
+discus_identifier: http-blog-xiaoyu # Add your Disqus identifier
 ga_analytics: # Add your GA Tracking Id
 local_fonts: false # Change to true if you wish to use local fonts
 rss_enabled: true # Change to false if not
