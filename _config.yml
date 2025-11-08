@@ -3,7 +3,7 @@
 name: 晓宇
 paginate: 25
 url: https://fengsxy.github.io/
-baseurl: /chalk # add your site url (format: http://example.com/)
+baseurl: /essay # add your site url (format: http://example.com/)
 blog_theme: light # Or use dark
 
 # Optional settings
