@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "生成和理解为什么在朴素条件下是不统一的？"
+title: "生成和理解为什么很难统一的？"
 date: 2025-11-08
 description:  "生成理解与表征学习"
 tags: [life, entrepreneur, cn]
