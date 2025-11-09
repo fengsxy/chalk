@@ -20,6 +20,44 @@
 
   <link rel="apple-touch-icon" href="{% asset_path apple-touch-icon.png %}">
   <link href="{{ 'feed.xml' | absolute_url }}" type="application/rss+xml" rel="alternate" title="{{ site.name }} Last 10 blog posts" />
+  {% if page.alternate_en %}
+  <link rel="alternate" hreflang="en" href="{{ page.alternate_en | absolute_url }}">
+  {% endif %}
+  {% if page.alternate_zh %}
+  <link rel="alternate" hreflang="zh-cn" href="{{ page.alternate_zh | absolute_url }}">
+  {% endif %}
+
+  {% if page.lang_redirect_target %}
+  <style>
+    html[data-lang-redirect="pending"] body {
+      visibility: hidden;
+    }
+  </style>
+  <script>
+    (function() {
+      var docEl = document.documentElement;
+      docEl.setAttribute('data-lang-redirect', 'pending');
+      var preferred = (navigator.languages && navigator.languages.length && navigator.languages[0]) || navigator.language || navigator.userLanguage || '';
+      var target = '{{ page.lang_redirect_target | relative_url }}';
+      if (preferred && /^en\b/i.test(preferred)) {
+        var normalizedPath = location.pathname.replace(/\/$/, '');
+        var normalizedTarget = target.replace(/\/$/, '');
+        if (normalizedPath !== normalizedTarget) {
+          window.location.replace(target);
+          return;
+        }
+      }
+      docEl.removeAttribute('data-lang-redirect');
+    })();
+  </script>
+  <noscript>
+    <style>
+      html[data-lang-redirect="pending"] body {
+        visibility: visible;
+      }
+    </style>
+  </noscript>
+  {% endif %}
 
   {% if site.local_fonts %}
     {% stylesheet fonts %}
@@ -69,3 +107,8 @@
     }
     </style>
 </head>
+
+
+
+
+

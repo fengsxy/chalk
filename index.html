@@ -2,10 +2,17 @@
 layout: default
 title: "The Ph.D. with a Thousand Faces"
 description: "Chalk uses all the best tools and merges them into one premium blogging theme."
+lang: zh
+alternate_en: /index_en.html
+lang_redirect_target: /index_en.html
 ---
 
 <ul class="article-list">
   {% for post in paginator.posts %}
+    {% assign post_lang = post.lang | default: '' | downcase %}
+    {% if post_lang == 'en' or post.tags contains 'en' %}
+      {% continue %}
+    {% endif %}
     <li class="article-list-item reveal">
       <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
         <h5>
