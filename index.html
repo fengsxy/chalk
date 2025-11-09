@@ -10,7 +10,14 @@ lang_redirect_target: /index_en.html
 <ul class="article-list">
   {% for post in paginator.posts %}
     {% assign post_lang = post.lang | default: '' | downcase %}
-    {% if post_lang == 'en' or post.tags contains 'en' %}
+    {% assign has_en_tag = false %}
+    {% for tag in post.tags %}
+      {% if tag | downcase == 'en' %}
+        {% assign has_en_tag = true %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+    {% if post_lang == 'en' or has_en_tag %}
       {% continue %}
     {% endif %}
     <li class="article-list-item reveal">

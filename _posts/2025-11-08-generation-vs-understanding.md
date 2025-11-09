@@ -3,8 +3,8 @@ layout: post
 title: "生成和理解为什么很难统一的？"
 date: 2025-11-08
 description:  "生成理解与表征学习"
-tags: [life, entrepreneur, en]
-lang: en
+tags: [life, entrepreneur, cn]
+lang: cn
 ---
 
 ### 为什么diffusion做不好表征？diffusion的隐空间为什么长得很像像素空间？
