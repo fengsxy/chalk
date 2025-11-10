@@ -5,6 +5,12 @@ description: "Chalk uses all the best tools and merges them into one premium blo
 lang: zh
 ---
 
+<div class="language-switch reveal">
+  <a class="language-switch-button" href="{{ 'tag/en/' | relative_url }}">
+    Switch to English
+  </a>
+</div>
+
 <ul class="article-list">
   {% for post in paginator.posts %}
     {% assign post_lang = post.lang | default: '' | downcase %}

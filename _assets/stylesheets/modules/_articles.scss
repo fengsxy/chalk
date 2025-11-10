@@ -7,6 +7,32 @@
   margin: 100px 0;
 }
 
+.language-switch {
+  display: flex;
+  justify-content: flex-end;
+  margin: 30px 0 10px;
+}
+
+.language-switch-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: $article-footer-link-color;
+  border: 1px solid $base-border-color;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: color $base-transition-speed linear,
+              background-color $base-transition-speed linear;
+  &:hover {
+    color: $body-background;
+    background-color: $article-footer-link-color;
+  }
+}
+
 .article-list {
   display: block;
   padding: 0;
