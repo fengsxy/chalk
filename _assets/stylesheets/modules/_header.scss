@@ -29,7 +29,7 @@
     &:first-child {
       margin-left: 0;
     }
-    a {
+    a:not(.language-switch-button) {
       font-size: 18px;
       color: $header-link-color;
       &:hover {

@@ -1,3 +1,4 @@
+{% assign navigation_lang = page.lang | default: site.lang | default: 'en' | downcase %}
 <nav class="header-nav reveal">
   <a href="{{ '/' | relative_url }}" class="header-logo" title="{{ site.name }}">{{ site.name }}</a>
   <ul class="header-links">
@@ -68,6 +69,13 @@
       <li>
         <a href="{{ 'feed.xml' | relative_url }}" target="_blank" title="RSS">
           <span class="icon icon-social-rss"></span>
+        </a>
+      </li>
+    {% endif %}
+    {% if navigation_lang contains 'zh' %}
+      <li class="header-language-switch">
+        <a class="language-switch-button" href="{{ 'tag/en/' | relative_url }}">
+          Switch to English
         </a>
       </li>
     {% endif %}
