@@ -72,10 +72,17 @@
         </a>
       </li>
     {% endif %}
-    {% if navigation_lang contains 'zh' %}
+    {% if navigation_lang contains 'zh' or navigation_lang contains 'en' %}
+      {% if navigation_lang contains 'zh' %}
+        {% assign language_switch_url = 'tag/en/' | relative_url %}
+        {% assign language_switch_label = 'Switch to English' %}
+      {% else %}
+        {% assign language_switch_url = '/' | relative_url %}
+        {% assign language_switch_label = 'Switch to Chinese' %}
+      {% endif %}
       <li class="header-language-switch">
-        <a class="language-switch-button" href="{{ 'tag/en/' | relative_url }}">
-          Switch to English
+        <a class="language-switch-button" href="{{ language_switch_url }}">
+          {{ language_switch_label }}
         </a>
       </li>
     {% endif %}
